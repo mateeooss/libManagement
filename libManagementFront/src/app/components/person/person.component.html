@@ -1,0 +1,36 @@
+<div class="persons">
+    <section>
+        <header class="table-header">
+            <span style="font-size: 25px; height: min-content; margin-bottom: 20px;">Pessoas</span>
+            <button mat-raised-button (click)="openPersonDialog()" class="icon-button">
+                <mat-icon>add</mat-icon>
+                <span>Adicionar</span>
+            </button>
+        </header>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Tel</th>
+                    <th>Email</th>
+                    <th style="width: 1px;">Ação</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let person of (personList$ | async)">
+                    <td>{{person.nome}}</td>
+                    <td>{{person.tel}}</td>
+                    <td>{{person.email}}</td>
+                    <td class="actions">
+                        <button mat-icon-button (click)="editPerson(person)" aria-label="Example icon button with a vertical three dot icon">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button mat-icon-button (click)="deletePerson(person.id)" aria-label="Example icon button with a vertical three dot icon">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table> 
+    </section>    
+</div>

@@ -1,0 +1,24 @@
+<mat-drawer-container class="menu">
+    <mat-drawer class="menu-open" #drawer mode="side">
+        <div class="menu-buttons">
+            <button matTooltip="Fechar" mat-icon-button type="button" (click)="drawer.toggle()">
+                <mat-icon>arrow_back_ios</mat-icon>
+            </button>
+            <button matTooltip="Pessoas" mat-icon-button type="button" (click)="drawer.toggle()" routerLink="/pessoas">
+                <mat-icon>person</mat-icon>
+            </button>
+            <button matTooltip="Livros" mat-icon-button type="button" (click)="drawer.toggle()" routerLink="/livros">
+                <mat-icon>book</mat-icon>
+            </button>
+            <button matTooltip="Emprestimos" mat-icon-button type="button" (click)="drawer.toggle()" routerLink="/emprestimos">
+                <mat-icon>menu_book</mat-icon>
+            </button>
+        </div>
+    </mat-drawer>
+  
+    <div class="menu-closed" [hidden]="drawer.opened"> 
+      <button matTooltip="Abrir" mat-icon-button type="button" (click)="drawer.toggle()">
+        <mat-icon>arrow_forward_ios</mat-icon>
+      </button>
+    </div>
+</mat-drawer-container>

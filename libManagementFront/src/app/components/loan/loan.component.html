@@ -1,0 +1,43 @@
+<div class="loan">
+    <section>
+        <header class="table-header">
+            <span style="font-size: 25px; height: min-content; margin-bottom: 20px;">Emprestimos</span>
+            <button mat-raised-button (click)="openLoanDialog()" class="icon-button">
+                <mat-icon>add</mat-icon>
+                <span>Adicionar</span>
+            </button>
+        </header>
+        <table>
+            <thead>
+                <tr>
+                    <th>Livro</th>
+                    <th>Pessoa</th>
+                    <th>Data Criação</th>
+                    <th>Data devolução</th>
+                    <th>status</th>
+                    <th style="width: 1px;">Ação</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let loan of (loanList$ | async)">
+                    <td>{{loan.book.title}}</td>
+                    <td>{{loan.person.nome}}</td>
+                    <td>{{loan.loanDate}}</td>
+                    <td>{{loan.returnDate}}</td>
+                    <td>{{getStatusLabel(loan)}}</td>
+                    <td class="actions">
+                        <button mat-icon-button matTooltip="Devolvido" (click)="checkLoan(loan)">
+                            <mat-icon>check_circle</mat-icon>
+                        </button>
+                        <button mat-icon-button matTooltip="Editar" (click)="editLoan(loan)">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button mat-icon-button matTooltip="Deletar" (click)="deleteLoan(loan.id)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table> 
+    </section>    
+</div>

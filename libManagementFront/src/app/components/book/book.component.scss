@@ -1,0 +1,44 @@
+:host{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+.books {
+    background-color: #1a1b1f;
+    color: white;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    height: 100%;
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        border: 1px solid #adadad;
+        padding: 8px;
+        text-align: left;
+    }
+
+    .table-header {
+        padding: 7px 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        span {
+            display: flex;
+        }
+        .icon-button{
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    .actions {
+        display:flex; 
+        gap: 10px;
+        font-size: 5px;
+        width: min-content;
+    }
+}

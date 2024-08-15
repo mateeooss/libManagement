@@ -1,0 +1,40 @@
+<div class="books">
+    <section>
+        <header class="table-header">
+            <span style="font-size: 25px; height: min-content; margin-bottom: 20px;">Livros</span>
+            <button mat-raised-button (click)="openBookDialog('Registrar Livro')" class="icon-button">
+                <mat-icon>add</mat-icon>
+                <span>Adicionar</span>
+            </button>
+        </header>
+        <table>
+            <thead>
+                <tr>
+                    <th>Titulo</th>
+                    <th>Autor</th>
+                    <th>isbn</th>
+                    <th>data publi</th>
+                    <th>categoria</th>
+                    <th style="width: 1px;">Ação</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let book of (bookList$ | async)">
+                    <td>{{book.title}}</td>
+                    <td>{{book.autor}}</td>
+                    <td>{{book.isbn}}</td>
+                    <td>{{book.publiDate}}</td>
+                    <td>{{getCategoryDisplayName(book.category)}}</td>
+                    <td class="actions">
+                        <button mat-icon-button (click)="editBook(book)">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button mat-icon-button (click)="deletePerson(book.id)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table> 
+    </section>    
+</div>

@@ -1,0 +1,64 @@
+<div class="book-dialog">
+    <h2 mat-dialog-title>{{title}}</h2>
+    <mat-dialog-content>
+        <form [formGroup]="form" class="form-input">
+            <mat-form-field style="flex: 100%;">
+                <mat-label>Titulo</mat-label>
+                <input
+                    matInput
+                    placeholder="ex: Harry Potter"
+                    formControlName="title"
+                    required
+                />
+                @if (form.get("title")?.invalid) {
+                    <mat-error>Obrigatorio</mat-error>
+                }
+            </mat-form-field>
+            <mat-form-field style="flex: 100%;">
+                <mat-label>Autor</mat-label>
+                <input
+                matInput
+                placeholder="ex: pedro alvantras"
+                formControlName="autor"
+                required
+                />
+                @if (form.get('autor')?.invalid) {
+                    <mat-error>Obrigatorio</mat-error>
+                }
+            </mat-form-field>           
+            <mat-form-field appearance="fill" style="flex: 100%;">
+                <mat-label>Isbn</mat-label>
+                <input 
+                    matInput 
+                    formControlName="isbn" 
+                    placeholder="ex: 44999887722"
+                    required>
+                @if (form.get('isbn')?.invalid) {
+                    <mat-error>Obrigatorio</mat-error>
+                }
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Data de Publicação</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="publiDate">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Categoria</mat-label>
+                <mat-select formControlName="category">
+                  @for (category of categoryList; track category) {
+                    <mat-option [value]="category.value">{{category.viewValue}}</mat-option>
+                  }
+                </mat-select>
+                @if (form.get('category')?.invalid) {
+                    <mat-error>Obrigatorio</mat-error>
+                }
+            </mat-form-field>
+        </form>
+    </mat-dialog-content>
+    <mat-dialog-actions class="actions-buttons">
+        <button mat-button mat-dialog-close>Cancelar</button>
+        <button mat-button (click)="createPerson()">{{edit ? 'Editar' : 'Criar'}}</button>
+    </mat-dialog-actions>
+</div>

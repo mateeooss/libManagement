@@ -1,0 +1,13 @@
+.loan-dialog{
+    .actions-buttons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .form-input{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+}

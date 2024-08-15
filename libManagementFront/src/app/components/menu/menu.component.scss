@@ -1,0 +1,24 @@
+.menu {
+    width: min-content; 
+    height: 100vh; 
+    background-color: #004f4f;
+}
+ 
+.menu-open {
+    width: min-content; 
+    padding: 5px 14px; 
+    background-color: #004f4f;
+}
+
+
+.menu-closed {
+    margin-top: 10px;
+}
+
+.menu-buttons {
+    display: flex; 
+    gap: 20px; 
+    font-size: 20px; 
+    flex-direction: column; 
+    margin-top: 10px;
+}
